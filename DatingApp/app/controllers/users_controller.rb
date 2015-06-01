@@ -10,9 +10,9 @@ class UsersController < ApplicationController
 		sign_out :user 
 		redirect_to root_path
 	end
-	
+
 	def new
-		@user = User.new
+		@user = User.find(params[:user_id])
 	end  
     
   	def create
