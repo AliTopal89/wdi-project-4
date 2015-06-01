@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-	has_many :messages
 	has_many :pictures
 	has_many :likes
   # Include default devise modules. Others available are:
@@ -15,6 +14,13 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false },
             length: 3..20
             # format: { with: WORD_CHARS }
+
+  has_many :sent_messages, class_name: 'Message', foreign_key: :sender_id
+  has_many :recipients, through: :sent_messages
+  has_many :received_messages, class_name: 'Message',
+                               foreign_key: :recipient_id
+  has_many :senders, through: :received_messages
+
   def self.find_first_by_auth_conditions(warden_conditions)
   	conditions = warden_conditions.dup
   	if login = conditions.delete(:login)
