@@ -47,7 +47,7 @@ Devise.setup do |config|
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
   config.strip_whitespace_keys = [ :email, ]
-  config.authentication_keys = [ :username ]
+  config.authentication_keys = [ :login ]
   config.scoped_views = true
   config.reset_password_keys = [ :username ]
   config.confirmation_keys = [ :username ]

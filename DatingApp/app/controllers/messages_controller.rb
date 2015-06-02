@@ -1,17 +1,27 @@
 class MessagesController < ApplicationController
-	# before_action :authenticate_user!
+	before_action :authenticate_user!
 	
 	def index
 		@messages = Message.all
 	end
 
-	def new
-		@message = Message.new
-		@recipient = User.find(params[:recipient_id]) if params[:recipient_id]
+	# def new
+	# 	@message = Message.new
+	# 	@recipient = User.find(params[:recipient_id]) if params[:recipient_id]
+ #  	end
+
+ 	def new
+  	end
+ 
+  	def create
+  		recipients = User.where(id: params['recipients'])
+    	conversation = current_user.send_message(recipients, params[:message][:body], params[:message][:subject]).conversation
+    	flash[:success] = "Message has been sent!"
+    	redirect_to conversation_path(conversation)
   	end
 
-  	def message_params
-  		params.require(:message).permit(:sender_id, :recipient_username, :recipient_id, :content)
-  	end
+  	# def message_params
+  	# 	params.require(:message).permit(:sender_id, :recipient_username, :recipient_id, :content)
+  	# end
 
 end
