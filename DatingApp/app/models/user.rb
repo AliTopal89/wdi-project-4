@@ -1,12 +1,20 @@
 class User < ActiveRecord::Base
+
   acts_as_messageable
 	has_many :pictures
 	has_many :likes
+  # reverse_geocoded_by :latitude, :longitude
+  # after_validation :reverse_geocode
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:login]
+
+  
+  # constant
+  INTEGERS = /\A[0-9]{5}\z/
 
 
   validates :username,
@@ -15,11 +23,12 @@ class User < ActiveRecord::Base
             length: 3..20
             # format: { with: WORD_CHARS }
 
-  has_many :sent_messages, class_name: 'Message', foreign_key: :sender_id
-  has_many :recipients, through: :sent_messages
-  has_many :received_messages, class_name: 'Message',
-                               foreign_key: :recipient_id
-  has_many :senders, through: :received_messages
+
+  # has_many :sent_messages, class_name: 'Message', foreign_key: :sender_id
+  # has_many :recipients, through: :sent_messages
+  # has_many :received_messages, class_name: 'Message',
+  #                              foreign_key: :recipient_id
+  # has_many :senders, through: :received_messages
 
   def login=(login)
     @login = login

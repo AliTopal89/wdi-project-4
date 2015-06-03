@@ -10,6 +10,12 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+  <div class="field"><%= f.check_box :is_female, {}, true %> <%= f.label :is_female, "Female" %>
+    <%= f.check_box :is_female, {}, false %> <%= f.label :is_female, "Male" %> </div>
+
+  <div><%= f.label :birthday %><br />
+       <%= f.date_select :birthday %></div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
