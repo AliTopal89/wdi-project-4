@@ -23,6 +23,17 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div><%= f.label :birthday %><br />
+       <%= f.date_select :birthday, {start_year: 1935, end_year: 2015 }%></div>
+  <%= f.label :zipcode %>
+  <%= form_tag users_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Nearby", :name => nil %>
+  </p>
+
+<% end %>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

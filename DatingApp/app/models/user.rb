@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
+  # attr_accessible :zipcode, :latitude, :longitude
 
   acts_as_messageable
 	has_many :pictures
 	has_many :likes
-  # reverse_geocoded_by :latitude, :longitude
-  # after_validation :reverse_geocode
+
+  geocoded_by :zipcode
+  after_validation :geocode
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -22,6 +24,10 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false },
             length: 3..20
             # format: { with: WORD_CHARS }
+  validates :birthday,
+            presence: true
+  
+  validate :over_18
 
 
   # has_many :sent_messages, class_name: 'Message', foreign_key: :sender_id
@@ -54,5 +60,15 @@ class User < ActiveRecord::Base
   def mailboxer_email(object)
     email
   end
+
+   def age
+    return 0 if birthday.nil?
+    now = Time.now.utc.to_date
+    now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+  end
+
+  def over_18
+    errors.add(:age, 'must be over 18') if age < 18
+   end
 
 end

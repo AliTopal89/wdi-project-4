@@ -1,0 +1,23 @@
+<ul>
+<% for user in @user.nearbys(25) %>
+  <li><%= link_to user.zipcode, user %> (<%= user.distance.round(2) %> miles)</li>
+<% end %>
+</ul<% title "Location zipcode" %>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @user.zipcode %>
+</p>
+
+<h3>Nearby Locations</h3>
+<ul>
+<% for user in @user.nearbys(25) %>
+  <li><%= link_to user.address, user %> (<%= user.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+
+<p>
+  <%= link_to "Edit", edit_user_registration_path(@user) %> |
+  <%= link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", users_path %>
+</p>

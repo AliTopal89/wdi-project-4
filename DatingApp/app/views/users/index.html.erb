@@ -1,0 +1,14 @@
+<h2> Find someone </h2>
+<p>
+<%= link_to "Limit To Nearby Users", users_path(nearby: 20) %>
+
+</p>
+
+Users:
+<ul>
+<% @users.each do |user| %>
+	<li>
+		<%= user.username %> 
+		<%=link_to "Start Conversation", new_conversation_path(recipient_id: user.id, sender_id: current_user.id) %>
+	</li>
+<% end %>

@@ -2,8 +2,13 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!
 	
 	def index
-		@users = User.all
-		@user = User.new
+		if params[:nearby]
+			@users = current_user.nearbys(params[:nearby])
+		elsif params[:search].present?
+			@users = User.near(params[:search], 25, :order => :distance)
+		else
+			@users = User.all
+		end
 	end
 
 	def show

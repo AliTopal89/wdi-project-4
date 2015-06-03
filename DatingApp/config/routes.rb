@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :users 
   resources :pictures
   resources :messages, only: [:new, :create, :edit, :destroy]
-  resources :conversations, only: [:index, :show, :destroy]
+  resources :conversations#, only: [:index, :show, :destroy]
   resources :likes
 
 
