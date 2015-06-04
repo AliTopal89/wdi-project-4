@@ -87,3 +87,118 @@ ul li a:hover{
   
 }
 
+.face {
+  margin:30px auto;
+  border-radius:50%;
+  opacity: 0.4;
+  background-color:dodgerblue;
+  height:100px;
+  width:100px;
+  position:relative;
+}
+
+.center {
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top:-4px;
+  margin-left:-4px;
+  border-radius:50%;
+  height:8px;
+  width:8px;
+  background-color:#333;
+}
+
+.seconds-hand {
+  position:absolute;
+  left:50%;
+  top:4px;
+  margin-left:-1px;
+  width:2px;
+  height:45px;
+  background-color:orange;
+  transform-origin: bottom center;
+}
+
+.minute-hand {
+  position:absolute;
+  left:50%;
+  top:4px;
+  margin-left:-2px;
+  width:4px;
+  height:45px;
+  background-color:#333;
+  transform-origin: bottom center;
+}
+
+.hour-hand {
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin-left:-2px;
+  margin-top:-30px;
+  width:4px;
+  height:30px;
+  background-color:#333;
+  transform-origin: bottom center; 
+}
+
+.smooth {
+  transition: all 1s linear;
+}
+
+
+.clock {
+  $w: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0.8em;
+  width: $w;
+  margin-top: -45px;
+  margin-left: -($w/2);
+  text-align: center;
+  overflow: hidden;
+}
+
+.clock span {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+}
+
+.clock span:nth-child(2),
+.clock span:nth-child(4) {
+  border-right: 1px solid #aaa;
+}
+
+.clock span:before,
+.clock span:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  backface-visibility: hidden;
+  transition: transform .75s;
+}
+
+.clock span:before {
+  content: attr(data-old);
+  z-index: 1;
+  transform: translate3d(0,0,0);
+}
+
+.clock .flip:before {
+  transform: translate3d(0,102.5%,0);
+}
+
+.clock span:after {
+  content: attr(data-now);
+  z-index: 2;
+  transform: translate3d(0,-102.5%,0);
+}
+
+.clock .flip:after {
+  transform: translate3d(0,0,0);
+}

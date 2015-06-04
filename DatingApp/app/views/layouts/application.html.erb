@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 	<div id="container">  
 		<div class="user_nav">
     <ul>  
@@ -36,6 +37,15 @@
   		</div>
  
   		<%= yield %>
+
+        <div class="face">
+  <div class="hour-hand"></div>
+  <div class="minute-hand"></div>
+  <div class="seconds-hand"></div>
+  <div class="center"></div>
+  <div class="clock"></div>
+</div>
+
 	</div>
 
 
