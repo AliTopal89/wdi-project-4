@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20150603023915) do
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "match_score"
-    t.text     "posts"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "likeable_id"
+    t.string   "likeable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|

@@ -1,0 +1,26 @@
+<% provide :title, 'Likes' %>
+<ul class="nav nav-tabs" id="likes">
+  <li class="active">
+    <a data-toggle="tab" href="#likes_me">Likes me</a>
+  </li>
+  <li>
+    <a data-toggle="tab" href="#liked_users">I like</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="likes_me">
+    <% if @likes_me.blank? %>
+      <h4></h4>
+    <% else %>
+      <%= render partial: 'users/user', collection: @likes_me, as: :user %>
+    <% end %>
+  </div>
+  <div class="tab-pane" id="liked_users">
+    <% if @liked_users.blank? %>
+      <h4></h4>
+    <% else %>
+      <%= render partial: 'users/user', collection: @liked_users, as: :user %>
+    <% end %>
+  </div>
+  <br/>
+</div>

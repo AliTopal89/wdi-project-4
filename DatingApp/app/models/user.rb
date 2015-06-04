@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
 
   acts_as_messageable
 	has_many :pictures
-	has_many :likes
 
   geocoded_by :zipcode
   after_validation :geocode
@@ -29,12 +28,13 @@ class User < ActiveRecord::Base
   
   validate :over_18
 
+  # likes me
+  has_many :liked_by, class_name: 'Like', as: :likeable, dependent: :destroy
+  has_many :likes_me, through: :liked_by, source: :user
 
-  # has_many :sent_messages, class_name: 'Message', foreign_key: :sender_id
-  # has_many :recipients, through: :sent_messages
-  # has_many :received_messages, class_name: 'Message',
-  #                              foreign_key: :recipient_id
-  # has_many :senders, through: :received_messages
+  # I like
+  has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :likeable, source_type: 'User'
 
   def login=(login)
     @login = login
