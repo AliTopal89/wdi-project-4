@@ -5,10 +5,11 @@
 </p>
 
 Users:
-<ul>
+<div id='conversation'>
 <% @users.each do |user| %>
-	<li>
+	<li><b>
 		<%= user.username %> 
 		<%=link_to "Start Conversation", new_message_path(recipient_id: @user) %>
 	</li>
 <% end %>
+</div>
