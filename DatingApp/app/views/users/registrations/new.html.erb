@@ -25,10 +25,9 @@
 
   <div><%= f.label :birthday %><br />
        <%= f.date_select :birthday, {start_year: 1935, end_year: 2015 }%></div>
-  <%= f.label :zipcode %>
+ 
   <%= form_tag users_path, :method => :get do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
     <br>
     <br>
     <%= submit_tag "Sign Up", :name => nil %>
