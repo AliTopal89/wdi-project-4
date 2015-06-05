@@ -57,6 +57,11 @@ h3 {
 #container{
   position:relative;
   padding:20px 10px;
+  
+}
+.user_nav {
+  display: inline-block;
+  list-style-type: none;
 }
 
 ul{
@@ -95,6 +100,11 @@ ul li a:hover{
   padding:12px 12px 30px 12px;
    
   
+}
+
+#conversation {
+  font-size: 20px;
+  color: orange;
 }
 
 .face {

@@ -24,7 +24,7 @@
 
 <h2> Find someone </h2>
 <p>
-<%= link_to "Limit To Nearby Users", users_path(nearby: 20) %>
+<%= link_to "Limit To Nearby Users", users_path(nearby: 25) %>
 
 </p>
 
@@ -35,13 +35,14 @@ Users:
   <li>
     <%= user.username %> 
     <%= link_to 'Send Message', new_message_path(recipient_id: @user.id), class: 'btn btn-primary' %>
-    <% if current_user.liked_users.include? @user %>
-      <%= link_to like_path(@user.id, type: 'User'), method: :delete, class: 'btn btn-danger' do %>
+    <% if current_user.liked_users.include? user %>
+
+      <%= link_to like_path(user, type: 'User'), method: :delete, class: 'btn btn-danger' do %>
         Unlike
         <span class="glyphicon glyphicon-thumbs-down"></span>
       <% end %>
     <% else %>
-      <%= link_to new_like_path(id: @user.id, type: 'User'), class: 'btn btn-success' do %>
+      <%= link_to new_likes_path(user, type: 'User'), method: :post class: 'btn btn-success' do %>
         Like
         <span class="glyphicon glyphicon-thumbs-up"></span>
       <% end %>

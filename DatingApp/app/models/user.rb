@@ -71,4 +71,12 @@ class User < ActiveRecord::Base
     errors.add(:age, 'must be over 18') if age < 18
    end
 
+   def new_likers_count
+    liked_by.where(new: true).count
+  end
+
+   def remember_id
+    @id = id
+  end
+
 end

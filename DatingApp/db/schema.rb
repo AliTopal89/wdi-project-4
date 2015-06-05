@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150603023915) do
     t.integer  "user_id"
     t.integer  "likeable_id"
     t.string   "likeable_type"
+    t.boolean  "new"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
