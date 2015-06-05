@@ -29,14 +29,14 @@
   <%= form_tag users_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search Nearby", :name => nil %>
+    <br>
+    <br>
+    <%= submit_tag "Sign Up", :name => nil %>
   </p>
 
 <% end %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  
 <% end %>
 
 <%= render "users/shared/links" %>
