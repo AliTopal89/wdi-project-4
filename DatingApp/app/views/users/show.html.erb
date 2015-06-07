@@ -1,5 +1,5 @@
 <ul>
-<% for user in @user.nearbys(25) %>
+<% for user in @user.nearbys(20) %>
   <li><%= link_to user.zipcode, user %> (<%= user.distance.round(2) %> miles)</li>
 <% end %>
 </ul<% title "Location zipcode" %>
@@ -11,7 +11,7 @@
 
 <h3>Nearby Locations</h3>
 <ul>
-<% for user in @user.nearbys(25) %>
+<% for user in @user.nearbys(20) %>
   <li><%= link_to user.address, user %> (<%= user.distance.round(2) %> miles)</li>
 <% end %>
 </ul>
@@ -24,7 +24,7 @@
 
 <h2> Find someone </h2>
 <p>
-<%= link_to "Limit To Nearby Users", users_path(nearby: 25) %>
+<%= link_to "Limit To Nearby Users", users_path(nearby: 20) %>
 
 </p>
 
