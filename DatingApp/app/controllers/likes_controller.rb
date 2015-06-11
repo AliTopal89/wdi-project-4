@@ -8,11 +8,13 @@ class LikesController < ApplicationController
 
   def index
     @likes_me = current_user.likes_me
-    @liked_users = current_user.liked_users
+    @liked_users = current_user.likes
   end
 
   def create
-    @likeable = current_user.likes.build(likeable_id: params[:id], likeable_type: params[:type])
+    puts "PARAMS GOING ON IN HERE"
+    puts params
+    @likeable = current_user.likes.build(likeable_id: params[:likeable_id], user_id: current_user.id)
     @likeable.save
     redirect_to :back
   end

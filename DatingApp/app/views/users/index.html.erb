@@ -10,7 +10,7 @@ Users:
 	<li><b>
 		<%= user.username %> 
 		<%=link_to "Start Conversation", new_message_path(recipient_id: user) %>
-		<%=button_to "Like", likes_path(likeable_type: :likeable_id) %>
+		<%=button_to "Like", likes_path(likeable_id: user.id) %>
 
 	</li>
 <% end %>
