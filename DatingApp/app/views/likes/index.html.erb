@@ -11,9 +11,7 @@
   <br>
   <% @likes_me.each do |like| %>
   <% if !like.likes_me.blank? %>
-    <li><b>
-      <%= User.find_by(id: like.likes_me).username %>
-      <%= link_to 'Send Message', new_message_path(id: like.likes_me), class: 'btn btn-primary' %>
+    <p><%= User.find_by(id: like.likes_me).username %></p>
 
     <% end %>
   <% end %>
@@ -22,6 +20,7 @@
   <% @liked_users.each do |like| %>
     <% if !like.likeable_id.blank? %>
       <p><%= User.find_by(id: like.likeable_id).username %></p>
+      <p><%= link_to "Start a Conversation" %>
     <% end %>
   <% end %>
 </div>
