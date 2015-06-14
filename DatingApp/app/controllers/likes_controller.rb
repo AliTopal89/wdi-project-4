@@ -12,8 +12,6 @@ class LikesController < ApplicationController
   end
 
   def create
-    puts "PARAMS GOING ON IN HERE"
-    puts params
     @likeable = current_user.likes.build(likeable_id: params[:likeable_id], user_id: current_user.id)
     @likeable.save
     redirect_to :back
