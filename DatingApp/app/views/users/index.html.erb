@@ -9,7 +9,7 @@ Users:
 <% @users.each do |user| %>
 	<li><b>
 		<%= user.username %>
-		<%= content_tag :span, user.last_sign_in_at, class: 'pull-right' %> 
+		<%= content_tag :span, user.last_sign_in_at.strftime("LAST ACTIVITY %h %d %R"), class: 'pull-right' %> 
 		<%=link_to "Start Conversation", new_message_path(recipient_id: user) %>
 		<%=button_to "Like", likes_path(likeable_id: user.id) %>
 

@@ -22,22 +22,26 @@ class ApplicationController < ActionController::Base
     redirect_to request.referer || path
   end
 
-  # private 
-
-  # def record_user_activity
-  #   if current_user
-  #     current_user.touch :last_sign_in_at
-  #   end
-  # end
 
   private
 
   def last_sign_in_at
-    if current_user
-      current_user.update_attribute(:last_sign_in_at, Time.now)
-      session[:last_sign_in_at] = Time.now
-    end
+    current_user.update_attribute(:last_sign_in_at, Time.now)
+    session[:last_sign_in_at] = Time.now
   end
   
 end
+  # def last_activity
+  #   current_time = DateTime.now
+  #   "last activity: " +
+  #     if updated_at > current_time - 1.minute
+  #       "now"
+  #     elsif updated_at > current_time - 1.hour
+  #       pluralize(((current_time.to_i - updated_at.to_i) / 60), 'minute') + " ago"
+  #     elsif updated_at > current_time - 1.day
+  #       pluralize(((current_time.to_i - updated_at.to_i) / 3600), 'hour') + " ago"
+  #     else
+  #       pluralize(((current_time.to_i - updated_at.to_i) / 86400), 'day') + " ago"
+  #     end
+  # end
 
