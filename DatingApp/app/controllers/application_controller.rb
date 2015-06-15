@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  before_filter :last_sign_in_at, if: proc { user_signed_in? && (session[:last_sign_in_at] == nil || session[:last_sign_in_at] < 10.minutes.ago) }
+  
   protected
 
   def configure_permitted_parameters
@@ -19,6 +20,23 @@ class ApplicationController < ActionController::Base
  
   def redirect_back_or(path)
     redirect_to request.referer || path
+  end
+
+  # private 
+
+  # def record_user_activity
+  #   if current_user
+  #     current_user.touch :last_sign_in_at
+  #   end
+  # end
+
+  private
+
+  def last_sign_in_at
+    if current_user
+      current_user.update_attribute(:last_sign_in_at, Time.now)
+      session[:last_sign_in_at] = Time.now
+    end
   end
   
 end
