@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
 
    def age
     return 0 if birthday.nil?
-    now = Time.now.gmt.to_date
+    now = Time.now
     now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
   end
 
@@ -77,6 +77,26 @@ class User < ActiveRecord::Base
 
    def remember_id
     @id = id
+  end
+
+  def last_activity
+  current_time = DateTime.now
+  "last activity: " +
+    if updated_at > current_time - 1.minute
+      "now"
+    elsif updated_at > current_time - 1.hour
+      pluralize(((current_time.to_i - updated_at.to_i) / 60), 'minute') + " ago"
+    elsif updated_at > current_time - 1.day
+      pluralize(((current_time.to_i - updated_at.to_i) / 3600), 'hour') + " ago"
+    else
+      pluralize(((current_time.to_i - updated_at.to_i) / 86400), 'day') + " ago"
+    end
+  end
+
+  private
+
+  def pluralize(number, word)
+    "#{ number.to_s } #{ word }" + ((number > 1) ? "s" : "")
   end
 
 end
