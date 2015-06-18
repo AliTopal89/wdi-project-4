@@ -51,7 +51,16 @@ h2 {
 	color: orange;
 }
 h3 {
-	color: #800000;
+	color: #000000;
+  display: block;
+  width:500px;
+  text-align: center;
+  margin: 1em auto;
+  padding: 1em 1em 1em 1em;
+  font-size: 2em;
+  font-weight: 700;
+  width: 50%;
+  position: relative;
 }
 
 #container{

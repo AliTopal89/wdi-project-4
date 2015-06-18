@@ -80,7 +80,7 @@ class User < ActiveRecord::Base
   end
 
   def last_activity
-  current_time = DateTime.now
+  current_time = Time.now
   "last activity: " +
     if updated_at > current_time - 1.minute
       "now"
