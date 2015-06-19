@@ -76,6 +76,7 @@ h3 {
   padding: 0;
   list-style-type: none;
   text-align: center;
+  
 }
 
 ul{
@@ -87,15 +88,14 @@ ul{
   text-align: center;
   position: relative;
 
-
 }
 ul li{
-  
- float:left;
- display:list-item;   
-   
-
+  float:left;
+  display:list-item;
+  text-align: center;
+  position: relative;   
 }
+
 ul li a{
   text-allign:center;
   text-decoration:none;

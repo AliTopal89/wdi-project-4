@@ -6,4 +6,6 @@ class Message < ActiveRecord::Base
 	def other_person(user)
     	sender == user ? recipient : sender
   	end
+
+  	
 end

@@ -27,34 +27,8 @@ class ApplicationController < ActionController::Base
     current_user.try :touch
   end
 
-  # def days_ago_in_words(time)
-  #   days = ((Time.now - time.to_time) / 86400.0).round
-  #   if days > 1
-  #     I18n.t :x_days, :count => days, :scope => :'datetime.distance_in_words'
-  #   else
-  #     time_ago_in_words(time)
-  #   end
-  # end
-
-  # private
-
-  # def last_sign_in_at
-  #   current_user.update_attribute(:last_sign_in_at, Time.now)
-  #   session[:last_sign_in_at] = Time.now
-  # end
+  
   
 end
-  # def last_activity
-  #   current_time = Time.now
-  #   "last activity: " +
-  #     if updated_at > current_time - 1.minute
-  #       "now"
-  #     elsif updated_at > current_time - 1.hour
-  #       pluralize(((current_time.to_i - updated_at.to_i) / 60), 'minute') + " ago"
-  #     elsif updated_at > current_time - 1.day
-  #       pluralize(((current_time.to_i - updated_at.to_i) / 3600), 'hour') + " ago"
-  #     else
-  #       pluralize(((current_time.to_i - updated_at.to_i) / 86400), 'day') + " ago"
-  #     end
-  # end
+  
 
