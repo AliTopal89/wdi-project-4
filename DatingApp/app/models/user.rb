@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, :trackable, :validatable, 
+         :omniauthable,:omniauth_providers => [:facebook],
          :authentication_keys => [:login]
 
   
@@ -90,6 +91,27 @@ class User < ActiveRecord::Base
       pluralize(((current_time.to_i - updated_at.to_i) / 3600), 'hour') + " ago"
     else
       pluralize(((current_time.to_i - updated_at.to_i) / 86400), 'day') + " ago"
+    end
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name
+      user.image = auth.info.image
+      user.token = auth.credentials.token
+      user.expires_at = Time.at(auth.credentials.expires_at)
+      # user.create_profile!(name: auth.info.name, photo_url: auth.info.image)
+      # user.save!
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
     end
   end
 

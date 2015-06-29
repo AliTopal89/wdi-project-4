@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "sessions"}, :path_names => { :sign_up => "register" }
+  devise_for :users, controllers: { sessions: "sessions"}, :path_names => { :sign_up => "register" }, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   
 
@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :messages, only: [:new, :create, :edit, :destroy]
   resources :conversations#, only: [:index, :show, :destroy]
   resources :likes
+
+  # match 'auth/:provider/callback', to: 'sessions#create'
+  # match 'auth/failure', to: redirect('/')
+  # match 'signout', to: 'sessions#destroy', as: 'signout'
 
 
   # Example of regular route:
