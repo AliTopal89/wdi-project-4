@@ -4,9 +4,8 @@
   <%= render 'conversations/participants', conversation: @conversation %>
 </p>
  
-<!-- <div class="panel panel-default">
-  <div class="panel-heading"><%= @conversation.subject %></div>
- --> 
+<div class="panel panel-default">
+  <p><%= user.username %></p>
   <div class="panel-body">
     <div class="messages">
       <% @conversation.receipts_for(current_user).each do |receipt| %>
