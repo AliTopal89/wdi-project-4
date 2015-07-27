@@ -1,6 +1,6 @@
 <h2> Find someone </h2>
 <p>
-<%= link_to "Limit To Nearby Users", users_path(nearby: 20) %>
+<%= link_to 'Nearby Users', users_path(nearby: 20), class: 'btn btn-lg btn-primary' %>
 
 </p>
 
@@ -8,11 +8,12 @@ Users:
 <div id='conversation'>
 <% @users.each do |user| %>
 	<li><b>
-		<%= user.username %>
+		<span class="btn btn-warning btn-ss"><%= user.username %></span>
 		<%= content_tag :span, user.last_activity, class: 'pull-right' %> 
-		<%=link_to "Start Conversation", new_message_path(recipient_id: user) %>
-		<%=button_to "Like", likes_path(likeable_id: user.id) %>
-
+		<%=link_to "Start Conversation", new_message_path(recipient_id: user), class: "btn btn-primary btn-ss" %>
+		<p></p>
+		<%= button_to "Like", likes_path(likeable_id: user.id), class: "btn btn-success" %>
+		<p></p>
 	</li>
 <% end %>
 </div>
