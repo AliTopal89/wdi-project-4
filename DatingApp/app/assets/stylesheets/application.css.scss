@@ -79,40 +79,10 @@ h3 {
   
 }
 
-ul{
-  
-  padding:0px;
-  display:list-item;
-  border:0px;
-  list-style-type: none;
-  height:30px;
-  text-align: center;
-  position: relative;
-
-}
-ul li{
-  float:left;
-  display:list-item;
-  text-align: center;
-  position: relative;   
-}
-
-ul li a{
-  text-allign:center;
-  text-decoration:none;
-  font-family:Arial;
-  transition:all 0.4s ease-in-out;
-  background-color:#000;
-  padding:12px;
-  text-transform: uppercase;
-  
-}
-
 #conversation {
   font-size: 20px;
   color: orange;
 }
-
 
 p {
 line-height: 1.4em;

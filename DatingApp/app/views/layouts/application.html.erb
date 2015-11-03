@@ -12,55 +12,93 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="page-top" class="index">
 
-	<div id="container"> 
-    <ul>  
-			<% if current_user %>
-      <p class="navbar-text">Logged in as<%= current_user.username %><span class="sr-only">(current)</span></li></p>
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="/">I-Like</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="hidden">
+            <a href="#page-top"></a>
+          </li>
+
+          <li>  
+            <% if current_user %>
+            <a class="navbar-text">Logged in as <%= current_user.username %></a>
+          </li>
+          <!--span class="sr-only">(current)</span></li></p -->
+        <!-- <nav class="navbar navbar-inverse"> -->
+          <!-- <div class="container-fluid"> -->
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            </button>
-            <a class="navbar-brand" href="/">I-Like</a>
-            </div>
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">
+            <!-- <div class="navbar-header"> -->
+
+            
+            <!-- </div> -->
+              <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+                  <!-- <ul class="nav navbar-nav"> -->
         
 				      
-                <li class="active"><%= link_to "Home Page", root_path %><span class="sr-only">(current)</span></li>
-                <li class="active"><%= link_to 'Edit Profile',edit_user_registration_path %><span class="sr-only">(current)</span></li>
-        				<li class="active"><%= link_to 'Your Conversations', conversations_path %><span class="sr-only">(current)</span></li>
-        				<li class="active"><%= link_to "Log out", destroy_user_session_path %><span class="sr-only">(current)</span></li>
-                <li class="active"><%= link_to 'Likes', likes_path %><span class="sr-only">(current)</span></li> 
-                <li class="active"><%= link_to 'Users', users_path %><span class="sr-only">(current)</span></li>
+                <li>
+                  <a class="page-scroll"><%= link_to "Home Page", root_path %></a>
+                </li>
+                <li> 
+                  <a class="page-scroll"><%= link_to 'Edit Profile',edit_user_registration_path %></a>
+                </li>
+        				<li> 
+                  <a class="page-scroll"><%= link_to 'Your Conversations', conversations_path %></a>
+                </li>
+        				<li>
+                  <a class="page-scroll"><%= link_to "Log out", destroy_user_session_path %></a>
+                </li>
+                <li>
+                  <a class="page-scroll"><%= link_to 'Likes', likes_path %></a>
+                </li> 
+                <li> <a class="page-scroll"><%= link_to 'Users', users_path %></a>
+                </li>
                 </ul> 
-              </div>
+              
           </div>   
-        </nav>
+        
 			<% else %>
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
+        <!-- <nav class="navbar navbar-inverse"> -->
+          <!-- <div class="container-fluid"> -->
             <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            </button>
-            <a class="navbar-brand" href="#">I-Like</a>
-          </div>
+          <!-- </div class="navbar-header"> -->
+            <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> -->
+            <!-- </button> -->
+            <!-- <a class="navbar-brand" href="/">I-Like</a> -->
+          <!-- </div> -->
+             <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-				        <li class="active"><%= link_to "Sign up", new_user_registration_path %><span class="sr-only">(current)</span></li>
-				        <li class="active"><%= link_to "Log in", new_user_session_path  %><span class="sr-only">(current)</span></li>
-            <li class="active"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %><span class="sr-only">(current)</span></li>
-          </ul>
+              <ul class="nav navbar-nav navbar-right">
+				        <li>
+                  <a class="page-scroll"><%= link_to "Sign up", new_user_registration_path %></a>
+                </li>
+				        <li>
+                  <a class="page-scroll"><%= link_to "Log in", new_user_session_path  %></a>
+                </li>
+                <li>
+                  <a class="page-scroll"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></a>
+                </li>
+              </ul>
             </div>  
         </div>
-      </nav> 
+      <!-- </nav>  -->
       <% end %>
-    </ul>
-    </div>
+      </nav>
       
     <div class="container">
     	<% flash.each do |key, value| %>
