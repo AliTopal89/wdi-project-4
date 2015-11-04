@@ -9,6 +9,7 @@
     font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
 }*/
 
+
 .text-muted {
     color: #777;
 }
@@ -113,9 +114,6 @@ fieldset[disabled] .btn-primary.active {
     /*background-color: #322;*/
     background-color: linear-gradient(to bottom,rgba(232, 24, 157, 0.21) 0,#EC108C 100%);
 }
-.navbar-brand {
-    margin-left: -10px;
-}
 
 .navbar-default .navbar-brand {
 
@@ -128,7 +126,7 @@ fieldset[disabled] .btn-primary.active {
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
 .navbar-default .navbar-brand.active {
-    color: inherit;
+    color: aqua;
 }
 
 .navbar-default .navbar-collapse {
@@ -141,7 +139,7 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: red;
+    background-color: #fed136;
 }
 
 .navbar-default .navbar-toggle:hover,

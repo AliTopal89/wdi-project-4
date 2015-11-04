@@ -34,7 +34,7 @@ var cbpAnimatedHeader = (function() {
         	classie.remove(header, 'navbar-shrink' );
     	}
     	didScroll = false;
-		}
+	}
 
 	function scrollY() {
 		return window.pageYOffset || docElem.scrollTop;
