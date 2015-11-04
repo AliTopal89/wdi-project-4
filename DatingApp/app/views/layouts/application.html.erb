@@ -24,6 +24,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand page-scroll" href="/">I-Like</a>
       </div>
@@ -37,7 +38,7 @@
 
           <li>  
             <% if current_user %>
-            <a class="navbar-text">Logged in as <%= current_user.username %></a>
+            <a class="page-scroll">Logged in as <%= current_user.username %></a>
           </li>
           <!--span class="sr-only">(current)</span></li></p -->
         <!-- <nav class="navbar navbar-inverse"> -->
@@ -72,7 +73,7 @@
               
           </div>   
         
-			<% else %>
+			    <% else %>
         <!-- <nav class="navbar navbar-inverse"> -->
           <!-- <div class="container-fluid"> -->
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -95,10 +96,11 @@
                 </li>
               </ul>
             </div>  
-        </div>
+        
       <!-- </nav>  -->
-      <% end %>
-      </nav>
+          <% end %>
+      </div>
+    </nav>
       
     <div class="container">
     	<% flash.each do |key, value| %>
@@ -124,7 +126,7 @@
 	</div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    
+
 
 </body>
 </html>
