@@ -28,7 +28,14 @@ module DatingApp
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    # config.serve_static_assets = true
+    config.serve_static_assets = true
+    config.assets.compress = true
+
+    # Don't fallback to assets pipeline if a precompiled asset is missed
+    config.assets.compile = true
+
+    # Generate digests for assets URLs
+    config.assets.digest = true
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
