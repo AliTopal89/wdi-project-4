@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor', group: :production
 gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
