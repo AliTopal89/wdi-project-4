@@ -1,3 +1,5 @@
+
+
 .navbar-default .navbar-brand {
     color: #1BACD8;
 }
@@ -12,4 +14,11 @@
 
 .navbar-default .navbar-nav>li>a:hover{
 	color:aqua;
+}
+
+.page-header{
+	border-bottom: 0em;
+}
+.convo{
+	margin-top: 40px;
 }
