@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#amazon web services
+gem 'aws-sdk'
+
 gem 'rails_12factor', group: :production
 gem 'omniauth-facebook'
 gem 'bootstrap-sass'

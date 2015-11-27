@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :users 
-  resources :pictures
+  resources :users do 
+    resources :pictures
+  end
   resources :messages, only: [:new, :create, :edit, :destroy]
   resources :conversations#, only: [:index, :show, :destroy]
   resources :likes

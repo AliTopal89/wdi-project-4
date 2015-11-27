@@ -1,0 +1,5 @@
+
+<%= form_tag pictuters_path, enctype: 'multipart/form-data' do %>
+    <%= file_field_tag :file  %>
+    <%= submit_tag 'Upload file' %>
+<% end %>
