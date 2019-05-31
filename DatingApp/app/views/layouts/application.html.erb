@@ -93,7 +93,7 @@
                   <a class="page-scroll"><%= link_to "Log in", new_user_session_path  %></a>
                 </li>
                 <li>
-                  <a class="page-scroll"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></a>
+                  <a class="page-scroll"><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), method: :post %></a>
                 </li>
               </ul>
             </div>  
