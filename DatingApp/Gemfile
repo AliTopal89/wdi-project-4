@@ -7,7 +7,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 gem 'geocoder'
 gem 'will_paginate'
-gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
+gem 'mailboxer', :git => 'https://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
 gem 'gravatar_image_tag'
 gem 'json' 
 # Repeated two byte sequence of backslash and character exhausts the capacity of servers to process requests in earlier version 0.14
