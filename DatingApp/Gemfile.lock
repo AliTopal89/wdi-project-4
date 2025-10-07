@@ -218,7 +218,7 @@ GEM
       stringio
     public_suffix (6.0.2)
     racc (1.8.1)
-    rack (2.2.18)
+    rack (2.2.19)
     rack-protection (2.2.2)
       rack
     rack-session (1.0.2)
