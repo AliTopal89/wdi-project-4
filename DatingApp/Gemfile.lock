@@ -92,7 +92,7 @@ GEM
     autoprefixer-rails (9.8.6)
       execjs
     base64 (0.2.0)
-    bcrypt (3.1.15)
+    bcrypt (3.1.22)
     benchmark (0.4.1)
     bigdecimal (3.2.2)
     binding_of_caller (0.8.0)
